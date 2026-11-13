@@ -1,1 +1,1 @@
-Realiza un proyecto con los pasos solicitados,
+Realiza un proyecto con los pasos solicitados: 
