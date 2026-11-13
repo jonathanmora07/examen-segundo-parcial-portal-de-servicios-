@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Conversor de Temperatura</h3>
+<p class="text-muted">Ingresa una temperatura en grados Celsius para convertirla a Fahrenheit y Kelvin.</p>
+
+<form method="POST" action="{{ url_for('temperatura') }}" class="row g-3 mt-2">
+    <div class="col-md-6">
+        <label class="form-label">Temperatura en Celsius (°C)</label>
+        <input type="number" step="0.01" name="celsius" class="form-control" required value="{{ celsius if celsius is not none else '' }}">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-danger">Convertir Temperatura</button>
+    </div>
+</form>
+
+{% if fahrenheit is not none %}
+<div class="alert alert-warning mt-4">
+    <h5>Resultados de Conversión</h5>
+    <ul class="mb-0">
+        <li><strong>Temperatura ingresada:</strong> {{ celsius }} °C</li>
+        <li><strong>Fahrenheit:</strong> {{ "%.2f"|format(fahrenheit) }} °F</li>
+        <li><strong>Kelvin:</strong> {{ "%.2f"|format(kelvin) }} K</li>
+    </ul>
+</div>
+{% endif %}
+{% endblock %} 

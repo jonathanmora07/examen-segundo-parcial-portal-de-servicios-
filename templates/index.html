@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="p-4 border rounded bg-white">
+    <h2 class="fw-bold">Bienvenido al Portal de Servicios</h2>
+    <p class="text-muted">Selecciona una opción del menú para consultar información o realizar cálculos.</p>
+
+    <!-- Accesos directos visuales -->
+    <div class="row g-3 my-3 text-center">
+        <div class="col-md-4">
+            <a href="{{ url_for('compra') }}" class="text-decoration-none text-dark">
+                <div class="card p-4 shadow-sm h-100">
+                    <i class="bi bi-currency-dollar fs-1 text-primary"></i>
+                    <h5 class="mt-2 fw-bold">Compra</h5>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="{{ url_for('salario') }}" class="text-decoration-none text-dark">
+                <div class="card p-4 shadow-sm h-100">
+                    <i class="bi bi-list-ul fs-1 text-success"></i>
+                    <h5 class="mt-2 fw-bold">Salario</h5>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="{{ url_for('temperatura') }}" class="text-decoration-none text-dark">
+                <div class="card p-4 shadow-sm h-100">
+                    <i class="bi bi-thermometer-half fs-1 text-danger"></i>
+                    <h5 class="mt-2 fw-bold">Temperatura</h5>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Carrusel Bootstrap con 3 imágenes -->
+    <div id="carruselPortal" class="carousel slide mt-4" data-bs-ride="carousel">
+        <div class="carousel-inner rounded">
+            <div class="carousel-item active">
+                <img src="https://picsum.photos/900/300?random=1" class="d-block w-100" alt="Imagen 1">
+            </div>
+            <div class="carousel-item">
+                <img src="https://picsum.photos/900/300?random=2" class="d-block w-100" alt="Imagen 2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://picsum.photos/900/300?random=3" class="d-block w-100" alt="Imagen 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carruselPortal" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carruselPortal" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Cálculo de Salario</h3>
+<p class="text-muted">Las primeras 40 horas se pagan normal; las horas adicionales se pagan al doble.</p>
+
+<form method="POST" action="{{ url_for('salario') }}" class="row g-3 mt-2">
+    <div class="col-md-6">
+        <label class="form-label">Horas trabajadas</label>
+        <input type="number" step="0.1" name="horas" class="form-control" required min="0" value="{{ horas or '' }}">
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Pago por hora ($)</label>
+        <input type="number" step="0.01" name="pago_hora" class="form-control" required min="0" value="{{ pago_hora or '' }}">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-success">Calcular Salario</button>
+    </div>
+</form>
+
+{% if salario_total is not none %}
+<div class="alert alert-success mt-4">
+    <h5>Desglose de Pago</h5>
+    <ul class="mb-0">
+        <li><strong>Horas trabajadas:</strong> {{ horas }} hrs</li>
+        <li><strong>Tarifa por hora:</strong> ${{ "%.2f"|format(pago_hora) }}</li>
+        <li><strong>Salario Total:</strong> ${{ "%.2f"|format(salario_total) }}</li>
+    </ul>
+</div>
+{% endif %}
+{% endblock %} 
